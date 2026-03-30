@@ -1,0 +1,129 @@
+/* Glassmorphism container */
+.container {
+  max-width: 480px;
+  min-width: 320px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Heading */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Swap button */
+.swapBtn {
+  background: rgba(0, 255, 255, 0.25);
+  color: #00ffff;
+  border: 1px solid #00ffff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swapBtn:hover {
+  background: rgba(0, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(0, 255, 255, 0.3);
+}
+
+/* Result */
+.result {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffff;
+}
+
+/* Chart wrapper */
+.chart {
+  margin-top: 30px;
+}
+
+/* Animated background shapes */
+.bgShapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bgShapes span {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 255, 255, 0.15);
+  animation: float 20s linear infinite;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.bgShapes span:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-duration: 25s;
+}
+
+.bgShapes span:nth-child(2) {
+  top: 40%;
+  left: 50%;
+  animation-duration: 30s;
+}
+
+.bgShapes span:nth-child(3) {
+  top: 70%;
+  left: 25%;
+  animation-duration: 35s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .swapBtn {
+    padding: 8px 16px;
+  }
+
+  .result {
+    font-size: 1.2rem;
+  }
+}
