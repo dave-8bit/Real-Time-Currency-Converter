@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import styles from "./AmountInput.module.css";
 
 type Props = {
