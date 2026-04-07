@@ -106,7 +106,7 @@ export default function Home() {
           {chartLoading && <p>Loading historical data...</p>}
           {chartError && <p style={{ color: "#f87171" }}>{chartError}</p>}
           {!chartLoading && !chartError && chartData.length > 0 && (
-            <HistoryChart data={chartData} />
+           <HistoryChart base={base} target={target} />
           )}
         </div>
       </div>
