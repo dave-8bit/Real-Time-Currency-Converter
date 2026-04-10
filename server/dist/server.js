@@ -9,8 +9,8 @@ const express_1 = __importDefault(require("express"));
 // Serve React build
 const clientPath = path_1.default.join(__dirname, "../../client/dist");
 app_1.default.use(express_1.default.static(clientPath));
-// Catch-all route for React or rather frontend.
-app_1.default.get("*", (_req, res) => {
+// Catch-all (Express 5 SAFE). Just send back index.html for any unknown routes to let React Router handle it.
+app_1.default.use((req, res) => {
     res.sendFile(path_1.default.join(clientPath, "index.html"));
 });
 const PORT = process.env.PORT || 5000;

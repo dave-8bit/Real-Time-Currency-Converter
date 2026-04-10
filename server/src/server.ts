@@ -6,8 +6,8 @@ import express from "express";
 const clientPath = path.join(__dirname, "../../client/dist");
 app.use(express.static(clientPath));
 
-// Catch-all route for React or rather frontend.
-app.get("*", (_req, res) => {
+// Catch-all (Express 5 SAFE). Just send back index.html for any unknown routes to let React Router handle it.
+app.use((req, res) => {
   res.sendFile(path.join(clientPath, "index.html"));
 });
 
