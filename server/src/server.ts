@@ -2,11 +2,15 @@ import app from "./app";
 import path from "path";
 import express from "express";
 
-// Serve React build
 const clientPath = path.join(__dirname, "../../client/dist");
+
+// ✅ API routes are already inside app.ts
+// DO NOT override them here
+
+// ✅ Serve static frontend AFTER API
 app.use(express.static(clientPath));
 
-// Catch-all (Express 5 SAFE). Just send back index.html for any unknown routes to let React Router handle it.
+// ✅ Catch-all LAST
 app.use((req, res) => {
   res.sendFile(path.join(clientPath, "index.html"));
 });

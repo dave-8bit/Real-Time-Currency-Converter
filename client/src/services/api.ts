@@ -1,3 +1,5 @@
+   //I did this instead of having to hardcode the localhost URL. It will throw back to this frontend URL instead
+
 const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 /* =========================
@@ -17,14 +19,14 @@ export type HistoricalResponse = {
 };
 
 /* =========================
-   FETCH RATES
+   FETCH RATES Here David
 ========================= */
 
 export async function fetchRates(base: string): Promise<RatesResponse> {
   const res = await fetch(`${BASE_URL}/rates?base=${base}`);
 
   if (!res.ok) {
-    throw new Error("Unable to fetch exchange rates. Please try again.");
+    throw new Error("Unable to fetch exchange rates. Please try again later.");
   }
 
   const data: unknown = await res.json();
