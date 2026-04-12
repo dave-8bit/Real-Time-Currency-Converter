@@ -1,6 +1,6 @@
    //I did this instead of having to hardcode the localhost URL. It will throw back to this frontend URL instead
 
-const BASE_URL = import.meta.env.VITE_API_URL || "";
+const BASE_URL = "";
 
 /* =========================
    TYPES
