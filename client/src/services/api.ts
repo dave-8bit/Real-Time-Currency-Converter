@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 /* =========================
    TYPES
@@ -24,7 +24,7 @@ export async function fetchRates(base: string): Promise<RatesResponse> {
   const res = await fetch(`${BASE_URL}/rates?base=${base}`);
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch rates: ${res.status}`);
+    throw new Error("Unable to fetch exchange rates. Please try again.");
   }
 
   const data: unknown = await res.json();
@@ -33,7 +33,7 @@ export async function fetchRates(base: string): Promise<RatesResponse> {
     return data;
   }
 
-  throw new Error("Invalid API response structure");
+  throw new Error("Unexpected response from server.");
 }
 
 /* =========================
@@ -50,7 +50,7 @@ export async function fetchHistorical(
   );
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch historical data: ${res.status}`);
+    throw new Error("Unable to load historical data.");
   }
 
   const data: unknown = await res.json();
@@ -59,7 +59,7 @@ export async function fetchHistorical(
     return data;
   }
 
-  throw new Error("Invalid historical API response structure");
+  throw new Error("Unexpected historical data format.");
 }
 
 /* =========================
